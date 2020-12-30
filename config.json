@@ -1,0 +1,5 @@
+{
+    "prefix": "YOUR PREFIX",
+    "token": "YOUR SECRET TOKEN",
+    "mongooseString": "YOUR MONGODB ACCOUNT LINK"
+}

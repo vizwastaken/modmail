@@ -172,7 +172,7 @@ async function sendTranscriptAndDelete(message, channel) {
   db.findOne({ AuthorID : message.channel.name }, async(err, data) => {
     if(err) throw err;
     if(data) {
-      fs.writeFileSync(`../${message.channel.name}.txt`, data.Content.join("\n"))
+      fs.writeFileSync(`../${message.channel.name}.txt`, data.Content.join("\n\n"))
       await channel.send(new MessageAttachment(fs.createReadStream(`../${message.channel.name}.txt`)))
       fs.unlinkSync(`../${message.channel.name}.txt`)
       await db.findOneAndDelete({ AuthorID : message.channel.name })
